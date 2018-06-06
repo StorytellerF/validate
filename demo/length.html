@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>length</title>
+    <link href="../css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<form>
+    <div class="form-group">
+        <label class="control-label" for="input1">label</label>
+        <input type="text" class="form-control" id="input1"
+               aria-describedby="inputSuccessStatus helpBlock">
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <span id="inputSuccessStatus" class="sr-only"></span>
+        <span id="helpBlock" class="help-block"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="input2">label</label>
+        <input type="text" class="form-control" id="input2"
+               aria-describedby="inputSuccess2Status helpBloc2k">
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <span id="inputSuccess2Status" class="sr-only"></span>
+        <span id="helpBlock2" class="help-block"></span>
+    </div>
+</form>
+<script src="../js/jquery.js"></script>
+<script src="../jquery.sf.validate.js"></script>
+<script src="../jquery.sf.validate.diting.js"></script>
+<script>
+    $(function () {
+        $("form").diting({
+            rulers: {
+                input1: {
+                    length: {//长度验证
+                        min: 6,
+                        max: 9,
+                        message:"6-9长度",
+                        min_em: "至少6位",
+                        max_em: "不能超过9位",
+                        min_cm: "可以",
+                        max_cm: "可以"
+                    }
+                },
+                input2: {
+                    length: "",
+                    min: 6,
+                    max: 9,
+                    message:"6-9长度",
+                    min_em: "至少6位",
+                    max_em: "不能超过9位",
+                    min_cm: "可以",
+                    max_cm: "可以"
+                }
+            },
+            advanced: {
+                bootstrap: true
+            }
+        })
+    })
+</script>
+</body>
+</html>

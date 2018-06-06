@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>equal</title>
+    <link href="../css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<form>
+    <input type="text" id="test">
+    <div class="form-group">
+        <label class="control-label" for="input1">label</label>
+        <input type="text" class="form-control" id="input1"
+               aria-describedby="inputSuccessStatus helpBlock">
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <span id="inputSuccessStatus" class="sr-only"></span>
+        <span id="helpBlock" class="help-block"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="input2">label</label>
+        <input type="text" class="form-control" id="input2"
+               aria-describedby="inputSuccess2Status helpBloc2k">
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <span id="inputSuccess2Status" class="sr-only"></span>
+        <span id="helpBlock2" class="help-block"></span>
+    </div>
+</form>
+<script src="../js/jquery.js"></script>
+<script src="../jquery.sf.validate.js"></script>
+<script src="../jquery.sf.validate.diting.js"></script>
+<script>
+    $(function () {
+        $("form").diting({
+            rulers:{
+                input1:{
+                    equal:{
+                        id:"#test",
+                        message:"要和test输入相同",
+                        error:"输入不同",
+                        correct:"输入相同"
+                    }
+                },
+                input2:{//单正则验证
+                    equal:"",
+                    id:"#test",
+                    message:"要和test输入相同",
+                    error:"输入不同",
+                    correct:"输入相同"
+                },
+            },
+            advanced:{
+                bootstrap:true
+            }
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sample</title>
+    <link href="../css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<form>
+    <input id="test" value="test">
+    <div class="form-group">
+        <label class="control-label" for="input1">required</label>
+        <input type="text" class="form-control" id="input1"
+               aria-describedby="inputSuccessStatus helpBlock">
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <span id="inputSuccessStatus" class="sr-only"></span>
+        <span id="helpBlock" class="help-block"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="input2">email</label>
+        <input type="text" class="form-control" id="input2"
+               aria-describedby="inputSuccess2Status helpBlock2">
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <span id="inputSuccess2Status" class="sr-only"></span>
+        <span id="helpBlock2" class="help-block"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="input1">length</label>
+        <input type="text" class="form-control" id="input3"
+               aria-describedby="inputSuccessStatus3 helpBlock3">
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <span id="inputSuccessStatus3" class="sr-only"></span>
+        <span id="helpBlock3" class="help-block"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="input2">range</label>
+        <input type="text" class="form-control" id="input4"
+               aria-describedby="inputSuccess2Status4 helpBlock4">
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <span id="inputSuccess2Status4" class="sr-only"></span>
+        <span id="helpBlock4" class="help-block"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="input1">regular</label>
+        <input type="text" class="form-control" id="input5"
+               aria-describedby="inputSuccessStatus5 helpBlock5">
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <span id="inputSuccessStatus5" class="sr-only"></span>
+        <span id="helpBlock5" class="help-block"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="input2">equal</label>
+        <input type="text" class="form-control" id="input6"
+               aria-describedby="inputSuccess2Status6 helpBlock6">
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <span id="inputSuccess2Status6" class="sr-only"></span>
+        <span id="helpBlock6" class="help-block"></span>
+    </div>
+</form>
+<script src="../js/jquery.js"></script>
+<script src="../jquery.sf.validate.js"></script>
+<script src="../jquery.sf.validate.diting.js"></script>
+<script>
+    $(function () {
+        $("form").diting({
+            rulers:{
+                input1:"required",
+                input2:"email",
+                input3:"l6-9",
+                input4:"r6-9",
+                input5:"/test/",
+                input6:"#test"
+            },
+            advanced:{
+                bootstrap:true
+            }
+        })
+    })
+</script>
+</body>
+</html>

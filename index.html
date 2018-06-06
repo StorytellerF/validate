@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<style>
+			.error{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="" method="post">
+			<label for="test"></label><input type="text" id="test" />
+			<label for="Name"></label><input type="text" id="Name" />
+			<label for="Pwd"></label><input type="text" id="Pwd" />
+			<input type="submit" value=""/>
+			<div class="form-group">
+				<label class="control-label" for="input1">label</label>
+				<input type="text" class="form-control" id="input1"
+					   aria-describedby="inputSuccessStatus helpBlock">
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span id="inputSuccessStatus" class="sr-only"></span>
+				<span id="helpBlock" class="help-block"></span>
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="input2">label</label>
+				<input type="text" class="form-control" id="input2"
+					   aria-describedby="inputSuccess2Status helpBloc2k">
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span id="inputSuccess2Status" class="sr-only"></span>
+				<span id="helpBlock2" class="help-block"></span>
+			</div>
+		</form>
+		<script src="js/jquery.js"></script>
+		<script src="jquery.sf.validate.js"></script>
+		<script src="jquery.sf.validate.diting.js"></script>
+		<script>
+
+			$(function  () {
+				$help= $("form").diting({
+					rulers:{
+						test:"required",//必需验证
+						Name:"email",
+                        input1:{//正则验证
+							regular:{
+							    regular:"/^test$/",
+								message:"必须填入test",
+                                error:"不符合正则表达式",
+								correct:"正确",
+                                fun:function (result) {
+                                    if (result === true) {
+                                        // console.log("成功");
+									}else {
+                                        // console.log("失败");
+									}
+                                }
+							}
+						},
+                        input2:{//单正则验证
+						  	regular:"/test/",
+                            error:"no",
+							correct:"yes",
+							fun:function () {
+								// console.log("test");
+                            }
+						},
+						Pwd:{
+							length:{//长度验证
+                                min:6,
+                                max:9,
+                                min_em:"minem",
+                                max_em:"maxem",
+                                min_cm:"mincm",
+                                max_cm:"maxcm"
+							}
+						}
+					},
+					fun:function (Key, validated) {
+						console.log(Key);
+						console.log(validated);
+                    },
+					advanced:{
+					    bootstrap:true,
+						show:false
+					}
+				});
+
+			})
+		</script>
+	</body>
+</html>

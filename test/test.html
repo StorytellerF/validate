@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+    <link href="../css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<form action="" method="post">
+
+    <div class="form-group has-success">
+        <label class="control-label" for="inputSuccess1">Input with success</label>
+        <input type="text" class="form-control" id="inputSuccess1" aria-describedby="helpBlock2">
+        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+        <span id="inputSuccess2Status" class="sr-only">(success)</span>
+        <span id="helpBlock2" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+    </div>
+</form>
+<script src="../js/jquery.js"></script>
+<script>
+    let a=["glyphicon-ok","glyphicon-remove"];
+    $(function () {
+        (function removeCurrentInputBootstrap(element) {
+            let parent=element.parent("div.form-group");
+
+            console.log(parent.removeClass().addClass("form-group"));
+            let icon=$(element.next("span.glyphicon")[0]);
+            icon.removeClass().addClass("glyphicon form-control-feedback");
+            let hidden=$(element.nextAll("span.sr-only")[0]);
+            hidden.text("");
+            let helpText=$(element.nextAll("span.help-block")[0]);
+            helpText.text("");
+        })($("#inputSuccess1"));
+    })
+
+</script>
+</body>
+</html>
