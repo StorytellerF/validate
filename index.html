@@ -45,15 +45,15 @@
 						Name:"email",
                         input1:{//正则验证
 							regular:{
-							    regular:"/^test$/",
-								message:"必须填入test",
-                                error:"不符合正则表达式",
-								correct:"正确",
-                                fun:function (result) {
+							    regular:"/^test$/",//正则表达式
+								message:"必须填入test",//为进行验证时的信息
+                                error:"不符合正则表达式",//验证出现错误时
+								correct:"正确",//验证错误时
+                                fun:function (result) {//仅当此标签验证时
                                     if (result === true) {
-                                        // console.log("成功");
+                                        console.log("成功");
 									}else {
-                                        // console.log("失败");
+                                        console.log("失败");
 									}
                                 }
 							}
@@ -70,20 +70,20 @@
 							length:{//长度验证
                                 min:6,
                                 max:9,
-                                min_em:"minem",
-                                max_em:"maxem",
-                                min_cm:"mincm",
-                                max_cm:"maxcm"
+                                min_em:"minem",//最小值不满足是错误信息
+                                max_em:"maxem",//最大值不满足是错误信息
+                                min_cm:"mincm",//最小值满足是错误信息
+                                max_cm:"maxcm"//最大值满足是错误信息
 							}
 						}
 					},
-					fun:function (Key, validated) {
+					fun:function (Key, validated) {//全局回到函数，任何一个标签验证时都会触发
 						console.log(Key);
 						console.log(validated);
                     },
-					advanced:{
-					    bootstrap:true,
-						show:false
+					advanced:{//这两个可填，可不填
+					    bootstrap:true,//根据bootstrap的helptext规则显示信息
+						show:false//在input标签下after 添加一个p标签显示信息
 					}
 				});
 

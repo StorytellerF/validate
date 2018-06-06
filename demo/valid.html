@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>equal</title>
+    <title>valid</title>
     <link href="../css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
+<button id="test">获取验证信息</button>
 <form>
-    <input type="text" id="test">
     <div class="form-group">
         <label class="control-label" for="input1">label</label>
         <input type="text" class="form-control" id="input1"
@@ -33,24 +33,20 @@
         $("form").diting({
             rulers:{
                 input1:{
-                    equal:{
-                        id:"#test",//jQuery选择器
-                        message:"要和test输入相同",
-                        error:"输入不同",
-                        correct:"输入相同"
+                    email:{
+                        message:"填入一个邮箱",
+                        correct:"填写正确",
+                        error:"填写错误"
                     }
-                },
-                input2:{//单正则验证
-                    equal:"",
-                    id:"#test",
-                    message:"要和test输入相同",
-                    error:"输入不同",
-                    correct:"输入相同"
-                },
+                }
             },
             advanced:{
                 bootstrap:true
             }
+        });
+        $("#test").click(function () {
+            console.log( $.fn.diting.is_valid);//{input1: false} input1时注册验证时的id
+            console.log($.fn.diting.valid)//false 任何一个标签验证失败，这个值就是false
         })
     })
 </script>
